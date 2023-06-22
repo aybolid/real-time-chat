@@ -19,13 +19,13 @@ const LabeledInput = React.forwardRef(function LabeledInput(
   { ...props }: LabeledInputProps,
   ref
 ) {
-  const { label, ...inputProps } = props;
+  const { label, inputClassName, ...inputProps } = props;
   return (
-    <label className="flex w-full flex-col gap-1">
+    <label className="flex w-full flex-col gap-px">
       {label}
       <input
         ref={ref as Ref<HTMLInputElement>}
-        className={`${inputProps.inputClassName} w-full rounded-md px-4 py-2 text-xl placeholder:text-neutral-300`}
+        className={`${inputClassName} w-full rounded-md px-4 py-2 text-xl placeholder:text-neutral-300 focus:outline-none`}
         autoComplete="off"
         {...inputProps}
       />

@@ -48,7 +48,7 @@ export default function SignUpForm() {
   });
   const { signUp, authError } = useAuth();
 
-  const onSubmit = (data: SignUpData) => signUp(data);
+  const onSubmit = (data: SignUpData) => signUp(data).then(() => reset());
 
   const FormActions = (): JSX.Element => {
     return (

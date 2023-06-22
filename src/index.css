@@ -17,14 +17,14 @@
     @apply duration-100 ease-in-out;
   }
   /* Sizes */
-  /* .btn-sm {
-    @apply;
-  } */
+  .btn-sm {
+    @apply rounded-md px-1 py-px text-sm capitalize;
+  }
   .btn-md {
     @apply rounded-md px-3 py-1 text-lg capitalize;
   }
   .btn-lg {
-    @apply rounded-md px-4 py-1 text-xl capitalize font-semibold;
+    @apply rounded-md px-4 py-1 text-xl font-semibold capitalize;
   }
   /* Mods */
   .btn-primary {

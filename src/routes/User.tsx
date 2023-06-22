@@ -1,6 +1,8 @@
+import Avatar from '../components/User/Avatar';
+import Button from '../components/elements/Button';
 import SectionWrapper from '../components/elements/SectionWrapper';
-import UserMeta from '../interfaces/Auth/UserMetadata';
 import { useAuth } from '../lib/supabase/auth';
+import { User as IUser } from '@supabase/supabase-js';
 
 export default function User() {
   const {
@@ -8,12 +10,14 @@ export default function User() {
     signOut,
   } = useAuth();
 
-  const data = user?.user_metadata as UserMeta;
-
   return (
     <SectionWrapper>
-      <h1>{data.name}</h1>
-      <button onClick={signOut}>Log out</button>
+      <div className="grid grid-cols-3 items-center justify-center gap-6">
+        <Avatar user={user as IUser} />
+        <Button className="btn-lg btn-danger" onClick={signOut}>
+          Sign Out
+        </Button>
+      </div>
     </SectionWrapper>
   );
 }

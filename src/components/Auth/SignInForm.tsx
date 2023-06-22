@@ -37,7 +37,7 @@ export default function SignInForm() {
   });
   const { signIn, authError } = useAuth();
 
-  const onSubmit = (data: SignInData) => signIn(data);
+  const onSubmit = (data: SignInData) => signIn(data).then(() => reset());
 
   const FormActions = (): JSX.Element => {
     return (

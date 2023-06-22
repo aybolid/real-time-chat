@@ -3,7 +3,7 @@ import { User, Session, AuthError } from '@supabase/supabase-js';
 import sb from '.';
 import { SignInData, SignUpData } from '../../interfaces/Auth/AuthData';
 
-interface AuthState {
+export interface AuthState {
   signUp: (authData: SignUpData) => Promise<void>;
   signIn: (authData: SignInData) => Promise<void>;
   signOut: () => Promise<void>;

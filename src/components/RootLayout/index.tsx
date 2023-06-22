@@ -9,7 +9,9 @@ export default function RootLayout({
   return (
     <>
       <Header />
-      <main className="h-full w-full flex-grow flex flex-col justify-center items-center">{children}</main>
+      <main className="flex h-full flex-grow flex-col items-center justify-center">
+        {children}
+      </main>
       <Footer year={new Date().getFullYear()} />
     </>
   );

@@ -13,7 +13,7 @@ export default function App() {
           <Route
             path="/"
             element={
-              <ProtectedRoute redirectTo="/auth/signup">
+              <ProtectedRoute redirectTo="/auth/login">
                 <div>Home</div>
               </ProtectedRoute>
             }
@@ -22,7 +22,7 @@ export default function App() {
           <Route
             path="/user"
             element={
-              <ProtectedRoute redirectTo="/auth/signup">
+              <ProtectedRoute redirectTo="/auth/login">
                 <User />
               </ProtectedRoute>
             }
