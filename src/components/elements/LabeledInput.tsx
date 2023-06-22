@@ -13,15 +13,16 @@ interface LabeledInputProps extends RegisterProps {
   label: string;
   type: 'email' | 'text' | 'password' | 'number';
   inputClassName?: string;
+  labelClassName?: string;
 }
 
 const LabeledInput = React.forwardRef(function LabeledInput(
   { ...props }: LabeledInputProps,
   ref
 ) {
-  const { label, inputClassName, ...inputProps } = props;
+  const { label, labelClassName, inputClassName, ...inputProps } = props;
   return (
-    <label className="flex w-full flex-col gap-px">
+    <label className={`${labelClassName} flex w-full flex-col gap-px`}>
       {label}
       <input
         ref={ref as Ref<HTMLInputElement>}

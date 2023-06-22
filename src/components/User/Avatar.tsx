@@ -4,8 +4,7 @@ import { User } from '@supabase/supabase-js';
 import UserMeta from '../../interfaces/Auth/UserMetadata';
 import { MdPhotoCamera } from 'react-icons/md';
 import Button from '../elements/Button';
-import ModalWrapper from '../elements/ModalWrapper';
-import useOutsideClick from '../../hooks/useOutsideClick';
+import LoadAvatarModal from './modals/LoadAvatarModal';
 
 export default function Avatar({ user }: { user: User }) {
   const [showLoadFile, setShowLoadFile] = React.useState(false);
@@ -24,7 +23,7 @@ export default function Avatar({ user }: { user: User }) {
           <Button
             onClick={() => setShowLoadFile(true)}
             title="Change Avatar"
-            className="absolute left-0 top-0 hidden h-full w-full place-items-center gap-0 bg-black/60 group-hover:grid"
+            className="absolute left-0 top-0 hidden h-full w-full place-items-center gap-0 bg-black/40 group-hover:grid"
           >
             <MdPhotoCamera className="text-white" size={28} />
           </Button>
@@ -34,26 +33,7 @@ export default function Avatar({ user }: { user: User }) {
           <p>{user?.email}</p>
         </div>
       </div>
-      {showLoadFile && <LoadFileModal setShowLoadFile={setShowLoadFile} />}
+      {showLoadFile && <LoadAvatarModal setShowLoadFile={setShowLoadFile} />}
     </>
   );
 }
-
-const LoadFileModal = ({
-  setShowLoadFile,
-}: {
-  setShowLoadFile: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
-  const ref = React.useRef<HTMLDivElement>(null);
-  useOutsideClick(ref, () => setShowLoadFile(false));
-
-  return (
-    <ModalWrapper>
-      <div ref={ref}>
-        <form>
-          <input type="file" />
-        </form>
-      </div>
-    </ModalWrapper>
-  );
-};
