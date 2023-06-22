@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply h-full bg-[url('/main-bg.svg')] bg-cover bg-no-repeat text-neutral-800;
+  }
+  #root {
+    @apply flex h-full min-h-screen flex-col gap-20;
+  }
+}
+
+@layer components {
+  /* Button */
+  .btn {
+    @apply duration-100 ease-in-out;
+  }
+  /* Sizes */
+  /* .btn-sm {
+    @apply;
+  } */
+  .btn-md {
+    @apply rounded-md px-3 py-1 text-lg capitalize;
+  }
+  .btn-lg {
+    @apply rounded-md px-4 py-1 text-xl capitalize font-semibold;
+  }
+  /* Mods */
+  .btn-primary {
+    @apply bg-sky-500 text-white hover:bg-sky-400 active:scale-95 active:bg-sky-500;
+  }
+  /* .btn-secondary { */
+  /* @apply; */
+  /* } */
+  .btn-success {
+    @apply bg-green-500 text-white hover:bg-green-400 active:scale-95 active:bg-green-500;
+  }
+  .btn-danger {
+    @apply bg-red-500 text-white hover:bg-red-400 active:scale-95 active:bg-red-500;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-opacity-30 backdrop-blur-lg;
+  }
+}
