@@ -1,20 +1,21 @@
 import { NavLink } from 'react-router-dom';
-import { useAuth } from '../../lib/supabase/auth';
 import logo from '../../assets/logo.svg';
-import UserMeta from '../../interfaces/Auth/UserMetadata';
-import getAvatarPlaceholder from '../../utils/getAvatarPlaceholder';
+import { useAppSelector } from '../../app/hooks';
+import { selectUserData } from '../../app/features/currentUser/currentUserSlice';
+import { useAuth } from '../../lib/supabase/auth/auth';
 
 export default function Header() {
   const {
-    data: { session, user },
+    data: { session },
   } = useAuth();
+  const data = useAppSelector(selectUserData);
 
   return (
     <header className="w-full">
       <div className="container mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
         <NavLink
           to={'/'}
-          className="glass flex items-center justify-center gap-2 rounded-md bg-white px-2 text-4xl font-semibold shadow-md"
+          className="flex items-center justify-center gap-2 text-4xl font-semibold"
         >
           <img className="h-16 w-16" src={logo} alt="logo" />
           <span className="mb-2">real-time-chat</span>
@@ -22,19 +23,17 @@ export default function Header() {
         {session && (
           <nav>
             <NavLink
+              title={`${data?.name} Profile`}
               className={
-                'glass flex flex-nowrap items-center justify-center gap-2 rounded-md bg-white p-2 text-xl shadow-md'
+                'glass flex flex-nowrap items-center justify-center gap-2 rounded-md bg-white p-2 text-xl shadow-lg duration-150 ease-in-out hover:scale-105 active:scale-100'
               }
               to={'/user'}
             >
               <img
-                src={getAvatarPlaceholder(
-                  (user?.user_metadata as UserMeta).name
-                )}
+                src={data?.image}
                 alt="Avatar"
                 className="h-10 w-10 rounded-full"
               />
-              {(user?.user_metadata as UserMeta).name}
             </NavLink>
           </nav>
         )}

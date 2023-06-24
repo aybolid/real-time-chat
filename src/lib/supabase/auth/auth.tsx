@@ -1,7 +1,8 @@
 import React from 'react';
 import { User, Session, AuthError } from '@supabase/supabase-js';
-import sb from '.';
-import { SignInData, SignUpData } from '../../interfaces/Auth/AuthData';
+import sb from '..';
+import { SignInData, SignUpData } from '../../../interfaces/Auth/AuthData';
+import { addNewUser } from '../db/users';
 
 export interface AuthState {
   signUp: (authData: SignUpData) => Promise<void>;
@@ -65,21 +66,23 @@ const useProvideAuth = () => {
   }, []);
 
   const signUp = async (authData: SignUpData) => {
-    const { error, data } = await sb.auth.signUp({
+    const {
+      error,
+      data: { session, user },
+    } = await sb.auth.signUp({
       email: authData.email,
       password: authData.password,
-      options: {
-        data: {
-          name: authData.name,
-        },
-      },
     });
+
     if (error) {
       setAuthError(error);
       return;
     }
-    setSession(data.session);
-    setUser(data.user);
+
+    await addNewUser(authData, (user as User).id);
+
+    setSession(session);
+    setUser(user);
     setAuthError(null);
   };
 

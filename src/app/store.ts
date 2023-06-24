@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import userReducer from './features/user/userSlice';
+import currentUserReducer from './features/currentUser/currentUserSlice';
+import userSearchReducer from './features/userSearch/userSearchSlice';
 
 export const store = configureStore({
-  reducer: { user: userReducer },
+  reducer: { userSearch: userSearchReducer, currentUser: currentUserReducer },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

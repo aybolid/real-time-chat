@@ -4,6 +4,7 @@ import Error from './routes/Error';
 import ProtectedRoute from './components/ProtectedRoute';
 import Auth from './routes/Auth';
 import User from './routes/User';
+import Home from './routes/Home';
 
 export default function App() {
   return (
@@ -14,7 +15,7 @@ export default function App() {
             path="/"
             element={
               <ProtectedRoute redirectTo="/auth/login">
-                <div>Home</div>
+                <Home />
               </ProtectedRoute>
             }
           />

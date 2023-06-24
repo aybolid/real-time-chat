@@ -2,7 +2,7 @@ import React, { Ref, ChangeEventHandler, FocusEventHandler } from 'react';
 
 interface RegisterProps {
   name?: string;
-  value?: never;
+  value?: never | string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
   onBlur?: FocusEventHandler<HTMLInputElement>;
   onFocus?: FocusEventHandler<HTMLInputElement>;
@@ -10,8 +10,8 @@ interface RegisterProps {
 
 interface LabeledInputProps extends RegisterProps {
   placeholder: string;
-  label: string;
   type: 'email' | 'text' | 'password' | 'number';
+  label?: string;
   inputClassName?: string;
   labelClassName?: string;
 }

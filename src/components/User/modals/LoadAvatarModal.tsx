@@ -6,8 +6,8 @@ import { MdClose, MdUpload } from 'react-icons/md';
 import { useDropzone } from 'react-dropzone';
 import Button from '../../elements/Button';
 import bytesToKb from '../../../utils/bytesToKb';
-import { uploadUserAvatar } from '../../../lib/supabase/bucket';
-import { useAuth } from '../../../lib/supabase/auth';
+import { uploadUserAvatar } from '../../../lib/supabase/storage/bucket';
+import { useAuth } from '../../../lib/supabase/auth/auth';
 
 export default function LoadAvatarModal({
   setShowLoadFile,

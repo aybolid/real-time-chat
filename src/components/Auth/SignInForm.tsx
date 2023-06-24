@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import LabeledInput from '../elements/LabeledInput';
-import { useAuth } from '../../lib/supabase/auth';
+import { useAuth } from '../../lib/supabase/auth/auth';
 import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import Button from '../elements/Button';
 import { SignInData } from '../../interfaces/Auth/AuthData';
@@ -61,7 +61,7 @@ export default function SignInForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="glass mx-auto flex max-w-md flex-col items-center justify-center gap-2 rounded-md bg-white p-4 shadow-md"
+      className="glass mx-auto flex w-full max-w-md flex-col items-center justify-center gap-2 rounded-md bg-white p-4 shadow-md"
     >
       <div className="w-full">
         <LabeledInput
