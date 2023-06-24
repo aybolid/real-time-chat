@@ -1,8 +1,8 @@
 import { NavLink, Navigate, useParams } from 'react-router-dom';
-import SignUpForm from '../components/Auth/SignUpForm';
+import SignUpForm from '../components/routes/Auth/SignUpForm';
 import SectionWrapper from '../components/elements/SectionWrapper';
 import { useAuth } from '../lib/supabase/auth/auth';
-import SignInForm from '../components/Auth/SignInForm';
+import SignInForm from '../components/routes/Auth/SignInForm';
 
 export default function Auth() {
   const { type } = useParams<{ type: 'signup' | 'login' }>();

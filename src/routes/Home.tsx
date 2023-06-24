@@ -1,4 +1,4 @@
-import ChatList from '../components/Home/ChatList';
+import ChatList from '../components/routes/Home/ChatList';
 import SectionWrapper from '../components/elements/SectionWrapper';
 
 export default function Home() {

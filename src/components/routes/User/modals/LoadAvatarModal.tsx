@@ -1,13 +1,13 @@
 import React from 'react';
-import useOutsideClick from '../../../hooks/useOutsideClick';
-import useScrollLock from '../../../hooks/useScrollLock';
-import ModalWrapper from '../../elements/ModalWrapper';
+import useOutsideClick from '../../../../hooks/useOutsideClick';
+import useScrollLock from '../../../../hooks/useScrollLock';
+import ModalWrapper from '../../../elements/ModalWrapper';
 import { MdClose, MdUpload } from 'react-icons/md';
 import { useDropzone } from 'react-dropzone';
-import Button from '../../elements/Button';
-import bytesToKb from '../../../utils/bytesToKb';
-import { uploadUserAvatar } from '../../../lib/supabase/storage/bucket';
-import { useAuth } from '../../../lib/supabase/auth/auth';
+import Button from '../../../elements/Button';
+import bytesToKb from '../../../../utils/bytesToKb';
+import { uploadUserAvatar } from '../../../../lib/supabase/storage/bucket';
+import { useAuth } from '../../../../lib/supabase/auth/auth';
 
 export default function LoadAvatarModal({
   setShowLoadFile,

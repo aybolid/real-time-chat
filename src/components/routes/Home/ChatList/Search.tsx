@@ -1,16 +1,16 @@
 import React from 'react';
-import LabeledInput from '../../elements/LabeledInput';
-import Button from '../../elements/Button';
+import LabeledInput from '../../../elements/LabeledInput';
+import Button from '../../../elements/Button';
 import { MdClose } from 'react-icons/md';
-import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
 import { useDebouncedCallback } from 'use-debounce';
 import {
   clearData,
   setData,
   setError,
-} from '../../../app/features/userSearch/userSearchSlice';
-import { searchForUsers } from '../../../lib/supabase/db/users';
-import { selectUserData } from '../../../app/features/currentUser/currentUserSlice';
+} from '../../../../app/features/userSearch/userSearchSlice';
+import { searchForUsers } from '../../../../lib/supabase/db/users';
+import { selectUserData } from '../../../../app/features/currentUser/currentUserSlice';
 
 export default function Search() {
   const [query, setQuery] = React.useState('');

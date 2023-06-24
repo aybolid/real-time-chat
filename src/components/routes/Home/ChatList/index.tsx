@@ -1,11 +1,11 @@
-import UserData from '../../../interfaces/Auth/UserData';
+import UserData from '../../../../interfaces/Auth/UserData';
 import Search from './Search';
 import { PostgrestError } from '@supabase/supabase-js';
-import { useAppSelector } from '../../../app/hooks';
+import { useAppSelector } from '../../../../app/hooks';
 import {
   selectData,
   selectError,
-} from '../../../app/features/userSearch/userSearchSlice';
+} from '../../../../app/features/userSearch/userSearchSlice';
 
 export interface SearchResults {
   res: UserData[] | null;

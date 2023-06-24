@@ -1,9 +1,9 @@
 import React from 'react';
 import { MdPhotoCamera } from 'react-icons/md';
-import Button from '../elements/Button';
+import Button from '../../elements/Button';
 import LoadAvatarModal from './modals/LoadAvatarModal';
-import { useAppSelector } from '../../app/hooks';
-import { selectUserData } from '../../app/features/currentUser/currentUserSlice';
+import { useAppSelector } from '../../../app/hooks';
+import { selectUserData } from '../../../app/features/currentUser/currentUserSlice';
 
 export default function Avatar() {
   const [showLoadFile, setShowLoadFile] = React.useState(false);

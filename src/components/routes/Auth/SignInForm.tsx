@@ -2,11 +2,11 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import LabeledInput from '../elements/LabeledInput';
-import { useAuth } from '../../lib/supabase/auth/auth';
+import LabeledInput from '../../elements/LabeledInput';
+import { useAuth } from '../../../lib/supabase/auth/auth';
 import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
-import Button from '../elements/Button';
-import { SignInData } from '../../interfaces/Auth/AuthData';
+import Button from '../../elements/Button';
+import { SignInData } from '../../../interfaces/Auth/AuthData';
 
 const schema = yup.object({
   email: yup

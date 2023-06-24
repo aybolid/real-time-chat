@@ -1,4 +1,4 @@
-import Avatar from '../components/User/Avatar';
+import Avatar from '../components/routes/User/Avatar';
 import Button from '../components/elements/Button';
 import SectionWrapper from '../components/elements/SectionWrapper';
 import { useAuth } from '../lib/supabase/auth/auth';
