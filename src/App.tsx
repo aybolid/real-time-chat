@@ -16,11 +16,12 @@ export default function App() {
     <Router>
       <RootLayout>
         <Routes>
+          {/* Protected Routes  */}
           <Route path="/" element={protect(<Home />)} />
           <Route path="/user" element={protect(<User />)} />
-
+          {/* Public Routes */}
           <Route path="/auth/:type" element={<Auth />} />
-
+          {/* Error Page */}
           <Route path="*" element={<Error />} />
         </Routes>
       </RootLayout>

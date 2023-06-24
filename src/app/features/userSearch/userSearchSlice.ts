@@ -7,11 +7,13 @@ import { PostgrestError } from '@supabase/supabase-js';
 interface UserSearchState {
   data: UserData[] | null;
   error: PostgrestError | null;
+  isLoading: boolean;
 }
 
 const initialState: UserSearchState = {
   data: null,
   error: null,
+  isLoading: false,
 };
 
 const userSearchSlice = createSlice({
@@ -30,12 +32,20 @@ const userSearchSlice = createSlice({
     clearData: (state) => {
       state.data = null;
       state.error = null;
+      state.isLoading = false;
+    },
+    setIsLoading: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload;
     },
   },
 });
 
-export const { setData, setError, clearData } = userSearchSlice.actions;
+export const { setData, setError, clearData, setIsLoading } =
+  userSearchSlice.actions;
+  
+export const selectUserSearch = (state: RootState) => state.userSearch;
 export const selectData = (state: RootState) => state.userSearch.data;
 export const selectError = (state: RootState) => state.userSearch.error;
+export const selectIsLoading = (state: RootState) => state.userSearch.isLoading;
 
 export default userSearchSlice.reducer;

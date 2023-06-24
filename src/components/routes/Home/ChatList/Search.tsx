@@ -8,6 +8,7 @@ import {
   clearData,
   setData,
   setError,
+  setIsLoading,
 } from '../../../../app/features/userSearch/userSearchSlice';
 import { searchForUsers } from '../../../../lib/supabase/db/users';
 import { selectUserData } from '../../../../app/features/currentUser/currentUserSlice';
@@ -17,19 +18,20 @@ export default function Search() {
   const dispatch = useAppDispatch();
   const currentUser = useAppSelector(selectUserData);
 
-  const handleSearch = useDebouncedCallback(async () => {
+  const handleSearch = useDebouncedCallback(() => {
     if (!query) {
       dispatch(clearData());
       return;
     }
     if (query.length < 3) return;
 
-    const { users, error } = await searchForUsers(
-      query.trim(),
-      currentUser?.user_id as string
-    );
-    dispatch(setData(users));
-    dispatch(setError(error));
+    dispatch(setIsLoading(true));
+    searchForUsers(query.trim(), currentUser?.user_id as string)
+      .then(({ users, error }) => {
+        dispatch(setData(users));
+        dispatch(setError(error));
+      })
+      .finally(() => dispatch(setIsLoading(false)));
   }, 300);
 
   React.useEffect(() => {
