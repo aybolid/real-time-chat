@@ -26,7 +26,7 @@ export default function Auth() {
 
   return (
     <SectionWrapper>
-      <div className="flex h-full w-full flex-col items-center justify-center">
+      <div className="flex h-screen w-full flex-col items-center justify-center">
         <h2 className="mb-4 w-full text-center text-3xl font-semibold">
           {type === 'signup' ? 'Sign Up' : 'Log In'}
         </h2>

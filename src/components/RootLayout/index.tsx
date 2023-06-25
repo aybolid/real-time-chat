@@ -1,5 +1,4 @@
-import Footer from './Footer';
-import Header from './Header';
+import Aside from './Aside';
 
 export default function RootLayout({
   children,
@@ -8,11 +7,10 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <Header />
-      <main className="flex h-full flex-grow flex-col items-center justify-center">
+      <Aside />
+      <main className="h-full min-h-screen w-full">
         {children}
       </main>
-      <Footer year={new Date().getFullYear()} />
     </>
   );
 }
